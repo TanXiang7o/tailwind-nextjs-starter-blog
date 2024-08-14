@@ -3,7 +3,6 @@
 import { Fragment, useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 import { Menu, RadioGroup, Transition } from '@headlessui/react'
-
 const Sun = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -49,14 +48,28 @@ const Blank = () => <svg className="h-6 w-6" />
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme, resolvedTheme } = useTheme()
+  const switchOnSound = '/static/sound/switch-on.mp3'
+  const switchOffSound = '/static/sound/switch-off.mp3'
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), [])
 
+  // 播放音效函数
+  const playSound = (isDark: boolean) => {
+    const audio = new Audio(isDark ? switchOffSound : switchOnSound)
+    audio.play()
+  }
+
+  const handleSetTheme = (theme: string) => {
+    const isDark = theme === 'dark' || resolvedTheme === 'dark'
+    playSound(isDark)
+    setTheme(theme)
+  }
+
   return (
     <div className="mr-5 flex items-center">
       <Menu as="div" className="relative inline-block text-left">
-        <div className="flex items-center justify-center hover:text-primary-500 dark:hover:text-primary-400">
+        <div className="flex items-center justify-center hover:text-blue-900 dark:hover:text-blue-400">
           <Menu.Button aria-label="Theme switcher">
             {mounted ? resolvedTheme === 'dark' ? <Moon /> : <Sun /> : <Blank />}
           </Menu.Button>
@@ -71,14 +84,14 @@ const ThemeSwitch = () => {
           leaveTo="transform opacity-0 scale-95"
         >
           <Menu.Items className="absolute right-0 z-50 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800">
-            <RadioGroup value={theme} onChange={setTheme}>
+            <RadioGroup value={theme} onChange={handleSetTheme}>
               <div className="p-1">
                 <RadioGroup.Option value="light">
                   <Menu.Item>
                     {({ active }) => (
                       <button
                         className={`${
-                          active ? 'bg-primary-600 text-white' : ''
+                          active ? 'bg-blue-600 text-white' : ''
                         } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                       >
                         <div className="mr-2">
@@ -94,7 +107,7 @@ const ThemeSwitch = () => {
                     {({ active }) => (
                       <button
                         className={`${
-                          active ? 'bg-primary-600 text-white' : ''
+                          active ? 'bg-blue-600 text-white' : ''
                         } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                       >
                         <div className="mr-2">
@@ -110,7 +123,7 @@ const ThemeSwitch = () => {
                     {({ active }) => (
                       <button
                         className={`${
-                          active ? 'bg-primary-600 text-white' : ''
+                          active ? 'bg-blue-600 text-white' : ''
                         } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                       >
                         <div className="mr-2">
