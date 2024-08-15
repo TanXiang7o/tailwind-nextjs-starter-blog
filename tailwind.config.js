@@ -25,8 +25,9 @@ module.exports = {
         sans: ['Outfit', ...fontFamily.sans],
       },
       colors: {
-        primary: colors.pink,
+        primary: colors.amber,
         gray: colors.gray,
+        dark: '#22272e',
       },
       zIndex: {
         60: '60',
