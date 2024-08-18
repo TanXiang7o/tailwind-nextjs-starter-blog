@@ -1,6 +1,6 @@
 ---
 title: word2vec
-date: '2022-10-15'
+date: '2022-11-15'
 tags: ['Python', 'Deep Learning']
 draft: false
 summary: '学习word2vec'
@@ -145,7 +145,7 @@ $$
 u_j = v_{w_j}^{'T}h \quad (2)
 $$
 
-其中, $v_{w_j}^{'}$是$W^{'}$的第 j 列, 即一个 $ N \* 1$的矩阵。
+其中, $v_{w_j}^{'}$是$W^{'}$的第 $j$ 列, 即一个 $ N * 1$的矩阵。
 
 然后可以使用softmax, 一个对数线性分类模型, 去得到词的后验分布, 是一个多项分布。
 
