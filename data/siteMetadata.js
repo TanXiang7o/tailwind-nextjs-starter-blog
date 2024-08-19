@@ -6,7 +6,7 @@ const siteMetadata = {
   description: 'Howdy, fellow!',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'txlink.me',
+  siteUrl: 'tailwind-nextjs-starter-blog-smoky-two.vercel.app',
   siteRepo: 'https://github.com/TanXiang7o/tailwind-nextjs-starter-blog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo1.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
