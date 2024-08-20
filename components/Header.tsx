@@ -5,6 +5,7 @@ import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
+import Umamishare from './Umamishare'
 
 const Header = () => {
   let headerClass = 'flex items-center w-full bg-white dark:bg-dark justify-between py-10'
@@ -42,6 +43,7 @@ const Header = () => {
               </Link>
             ))}
         </div>
+        <Umamishare />
         <SearchButton />
         <ThemeSwitch />
         <MobileNav />
