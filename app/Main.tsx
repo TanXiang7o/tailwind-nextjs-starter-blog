@@ -57,7 +57,7 @@ export default function Home({ posts }) {
                       <div className="text-base font-medium leading-6">
                         <Link
                           href={`/blog/${slug}`}
-                          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                          className="rounded-md bg-indigo-600 px-3.5 py-2 font-semibold text-primary-500 shadow-sm hover:bg-indigo-500 hover:text-primary-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-900"
                           aria-label={`Read more: "${title}"`}
                         >
                           Read more &rarr;
@@ -75,16 +75,11 @@ export default function Home({ posts }) {
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
             href="/blog"
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+            className="rounded-md bg-indigo-600 px-3.5 py-2 font-semibold text-primary-500 shadow-sm hover:bg-indigo-500 hover:text-primary-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-900"
             aria-label="All posts"
           >
             All Posts &rarr;
           </Link>
-        </div>
-      )}
-      {siteMetadata.newsletter?.provider && (
-        <div className="flex items-center justify-center pt-4">
-          <NewsletterForm />
         </div>
       )}
       <SpeedInsights />

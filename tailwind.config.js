@@ -22,7 +22,7 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['Outfit', ...fontFamily.sans],
+        sans: ['var(--font-outfit)', ...fontFamily.sans],
       },
       colors: {
         primary: colors.amber,
